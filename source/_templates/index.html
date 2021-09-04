@@ -172,35 +172,25 @@
     もし、インラインデリミタ文字をその文字自体として使いたい場合、
     <a href="#escaping">バックスラッシュでのエスケープ</a> を行うか（例えば2重バッククォートでインラインリテラルとして）クォートしてください。
 
-    <p>In detail, the reStructuredText specification says that in
-      inline markup, the following rules apply to start-strings and
-      end-strings (inline markup delimiters):
+    <p>reStructuredText のインラインマークアップ仕様の詳細として、
+      開始文字と終了文字（インラインマークアップ区切り文字）として
+      以下のルールが適用されます:
 
     <ol>
-      <li>The start-string must start a text block or be
-    immediately preceded by whitespace or any of&nbsp;
-    <samp>' " ( [ {</samp> or&nbsp;<samp>&lt;</samp>.
-      <li>The start-string must be immediately followed by non-whitespace.
-      <li>The end-string must be immediately preceded by non-whitespace.
-      <li>The end-string must end a text block (end of document or
-    followed by a blank line) or be immediately followed by whitespace
-    or any of&nbsp;<samp>' " . , : ; ! ? - ) ] } / \</samp> 
-    or&nbsp;<samp>&gt;</samp>.
-      <li>If a start-string is immediately preceded by one of&nbsp;
-    <samp>' " ( [ {</samp> or&nbsp;<samp>&lt;</samp>, it must not be
-    immediately followed by the corresponding character from&nbsp;
-    <samp>' " ) ] }</samp> or&nbsp;<samp>&gt;</samp>.
-      <li>An end-string must be separated by at least one
-    character from the start-string.
-      <li>An <a href="#escaping">unescaped</a> backslash preceding a
-    start-string or end-string will disable markup recognition, except
-    for the end-string of inline literals.
+      <li>開始文字はテキストブロックか、直前に空白か次のいずれかを置く: <samp>' " ( [ { &lt;</samp>
+      <li>開始文字の直後には空白以外の文字が必要
+      <li>終了文字の直前には空白以外の文字が必要
+      <li>終了文字はテキストブロック（ドキュメントの終わり、または空行が続く）か、
+     直後に空白または次のいずれかを置く: <samp>' " . , : ; ! ? - ) ] } / \ &gt;</samp>
+      <li>開始文字の直前が <samp>' " ( [ { &lt;</samp> のいずれかの場合、
+    続けてその文字に呼応する文字 <samp>' " ) ] } &gt;</samp> があってはならない
+      <li>開始文字と終了文字の間には1つ以上の文字があること
+      <li><a href="#escaping">エスケープ</a> されていないバックスラッシュが開始文字や終了文字の直前にあると、
+    インラインリテラルの終了文字以外は、マークアップとして解釈されなくなる
     </ol>
 
-    <p>Also remember that inline markup may not be nested (well,
-      except that inline literals can contain any of the other inline
-      markup delimiter characters, but that doesn't count because
-      nothing is processed).
+    <p>また、インラインマークアップはおそらくネスト（入れ子に）できません。
+      （インラインリテラルは他のインラインマークアップの区切り文字を含められますが、それはインラインマークアップとして解釈されません）
 
     <h2><a href="#contents" name="escaping" class="backref"
         >バックスラッシュでのエスケープ</a></h2>
