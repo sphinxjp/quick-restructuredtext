@@ -216,10 +216,10 @@
       <td>*escape* ``with`` "\"
     </table>
 
-    <p>In Python strings it will, of course, be necessary
-      to escape any backslash characters so that they actually
-      <em>reach</em> reStructuredText.
-      The simplest way to do this is to use raw strings:
+    <p>Pythonの文字列内で上記のようなreStructuredTextを書く場合は、
+      もちろん、バックスラッシュ自体のエスケープをしてバックスラッシュを
+      reStructuredTextまで<em>届ける</em>必要があります。
+      raw文字列を使うとシンプルに実現できます。
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
       <thead>
@@ -673,8 +673,8 @@ unindented literal blocks:
         </blockquote>
     </table>
 
-    <p>Use <a href="#comments">empty comments</a> to separate indentation
-    contexts, such as block quotes and directive contents.</p>
+    <p>ディレクティブの後に引用ブロックを置くような、連続するインデント文を分割して扱いたい場合は、
+      <a href="#comments">空のコメント</a>を間に置いてください。</p>
 
     <h2><a href="#contents" name="doctest-blocks" class="backref"
         >Doctestブロック</a></h2>
@@ -706,20 +706,18 @@ unindented literal blocks:
 <br>This&nbsp;is&nbsp;a&nbsp;doctest&nbsp;block.</samp>
     </table>
 
-    <p>"The <a
-    href="http://www.python.org/doc/current/lib/module-doctest.html">doctest</a>
-    module searches a module's docstrings for text that looks like an
-    interactive Python session, then executes all such sessions to
-    verify they still work exactly as shown." (From the doctest docs.)
+    <p>"<a href="https://docs.python.org/ja/3/library/doctest.html">doctest</a>
+    モジュールは、対話的 Python セッションのように見えるテキストを探し出し、セッションの内容を実行して、
+    そこに書かれている通りに振舞うかを調べます。" (doctestドキュメントより)
 
     <h2><a href="#contents" name="tables" class="backref"
         >テーブル</a></h2>
 
     <p>(<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#tables">詳細</a>)
 
-    <p>There are two syntaxes for tables in reStructuredText.  Grid
-    tables are complete but cumbersome to create.  Simple tables are
-    easy to create but limited (no row spans, etc.).</p>
+    <p>reStructuredTextには、テーブルを表現する2つの文法があります。
+      グリッドテーブルは完璧ですが、書くのが面倒です。
+      シンプルテーブルは書くのが簡単ですが、結合セルを表現できないなどの制約があります。</p>
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
       <thead>
@@ -866,18 +864,17 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
         transitions be immediately adjacent.
     </table>
 
-    <p>Transitions are commonly seen in novels and short fiction, as a
-    gap spanning one or more lines, marking text divisions or
-    signaling changes in subject, time, point of view, or emphasis.
+    <p>トランジションは小説などでよく見かけます。
+      文章と文章の間に1本～数本の区切り線を置いて、
+      文章、話題、時間、観点、感情の切り替わりを表現します。
 
     <h2><a href="#contents" name="explicit-markup" class="backref"
         >明示的マークアップ</a></h2>
 
-    <p>Explicit markup blocks are used for constructs which float
-    (footnotes), have no direct paper-document representation
-    (hyperlink targets, comments), or require specialized processing
-    (directives).  They all begin with two periods and whitespace, the
-    "explicit markup start".
+    <p>明示的マークアップブロックは、次のような文を置くために使います。
+      文章から浮いた文（脚注）、紙に印字されない表現（ハイパーリンクターゲット、コメント）、
+      特別な処理が必要な文（ディレクティブ）などです。
+      明示的マークアップは必ず、"2つのピリオドと空白"から始まります。
 
     <h3><a href="#contents" name="footnotes" class="backref"
         >脚注</a></h3>
@@ -965,12 +962,11 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
 
     </table>
 
-    <p>The numbering of auto-numbered footnotes is determined by the
-    order of the footnotes, not of the references. For auto-numbered
-    footnote references without autonumber labels
-    ("<samp>[#]_</samp>"), the references and footnotes must be in the
-    same relative order. Similarly for auto-symbol footnotes
-    ("<samp>[*]_</samp>").
+    <p>オートナンバー型脚注は、脚注の登場順に番号が振られます。
+      脚注参照の登場順ではありません。
+      オートナンバー型脚注への脚注参照をラベル無し("<samp>[#]_</samp>")で行う場合、
+      参照と定義の登場順を一致させる必要があります。
+      オートシンボル脚注("<samp>[*]_</samp>")でも同様です。
 
     <h3><a href="#contents" name="citations" class="backref"
         >引用</a></h3>
@@ -1048,14 +1044,14 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
         <p><samp>..&nbsp;_Python:&nbsp;http://www.python.org/</samp>
       <td>
         <table width="100%">
-          <tr bgcolor="#99CCFF"><td><em>Fold-in form</em>
+          <tr bgcolor="#99CCFF"><td><em>短縮形式</em>
           <tr><td>External hyperlinks, like
           <a href="http://www.python.org/">Python</a>.
         </table>
     <tr valign="top">
       <td>
         <table width="100%">
-          <tr bgcolor="#99CCFF"><td><em>Call-out form</em>
+          <tr bgcolor="#99CCFF"><td><em>展開形式</em>
           <tr><td>External hyperlinks, like
           <a href="#labPython"><i>Python</i></a>.
 
@@ -1067,14 +1063,12 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
         </table>
     </table>
 
-    <p>"<em>Fold-in</em>" is the representation typically used in HTML
-      documents (think of the indirect hyperlink being "folded in" like
-      ingredients into a cake), and "<em>call-out</em>" is more suitable for
-      printed documents, where the link needs to be presented explicitly, for
-      example as a footnote.  You can force usage of the call-out form by
-      using the
-      "<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/directives.html#target-notes">target-notes</a>"
-      directive.
+    <p>"<em>短縮</em>" はHTMLドキュメントでよく使われる表示です。
+      <!-- (think of the indirect hyperlink being "fold-in" like ingredients into a cake)
+      （無名ハイパーリンクは、ケーキの材料のように練り込まれていると言えます） -->
+      "<em>展開</em>" は印刷するドキュメントに適した表示で、リンクや脚注を明示的に表示します。
+      展開形式を強制的に使いたい場合は、
+      "<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/directives.html#target-notes">target-notes</a>" ディレクティブで指定します。
 
     <p>reStructuredText also provides for <b>embedded URIs</b> (<a
       href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#embedded-uris">詳細</a>),
@@ -1117,7 +1111,7 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
         <p><samp>This&nbsp;is&nbsp;an&nbsp;example&nbsp;crossreference&nbsp;target.</samp>
       <td>
         <table width="100%">
-          <tr bgcolor="#99CCFF"><td><em>Fold-in form</em>
+          <tr bgcolor="#99CCFF"><td><em>短縮形式</em>
           <!-- Note that some browsers may not like an "a" tag that -->
           <!-- does not have any content, so we could arbitrarily   -->
           <!-- use the first word as content - *or* just trust to   -->
@@ -1129,7 +1123,7 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
     <tr valign="top">
       <td>
         <table width="100%">
-          <tr><td bgcolor="#99CCFF"><em>Call-out form</em>
+          <tr><td bgcolor="#99CCFF"><em>展開形式</em>
           <tr><td>Internal crossreferences, like <a href="#example-callout">example</a>
 
           <p><a name="example-callout"><i>example:</i></a>
