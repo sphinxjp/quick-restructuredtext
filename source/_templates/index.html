@@ -1070,11 +1070,11 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
       展開形式を強制的に使いたい場合は、
       "<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/directives.html#target-notes">target-notes</a>" ディレクティブで指定します。
 
-    <p>reStructuredText also provides for <b>embedded URIs</b> (<a
-      href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#embedded-uris">詳細</a>),
-      a convenience at the expense of readability.  A hyperlink
-      reference may directly embed a target URI inline, within angle
-      brackets.  The following is exactly equivalent to the example above:
+    <p>reStructuredTextには、<b>埋め込みURI</b> (<a
+      href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#embedded-uris-and-aliases">詳細</a>)
+      記法もあり、この記法は読みやすい書き方です。
+      ハイパーリンク参照とする文字列をバッククォートでカコミ、リンク先URIを直接埋め込みます。
+      以下の例は、上記の書き方と同じ意味で解釈されます。
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
       <thead>
@@ -1161,25 +1161,21 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
 
     </table>
 
-    <p>The second hyperlink target (the line beginning with
-    "<samp>__</samp>") is both an indirect hyperlink target
-    (<i>indirectly</i> pointing at the Python website via the
-    "<samp>Python_</samp>" reference) and an <b>anonymous hyperlink
-    target</b>. In the text, a double-underscore suffix is used to
-    indicate an <b>anonymous hyperlink reference</b>.  In an anonymous
-    hyperlink target, the reference text is not repeated.  This is
-    useful for references with long text or throw-away references, but
-    the target should be kept close to the reference to prevent them
-    going out of sync.
+    <p>2つ目の（"<samp>__</samp>"で始まっている）ハイパーリンクターゲットは、
+    別のハイパーリンクターゲット（"<samp>Python_</samp>"が指すPythonウェブサイト）
+    を<i>間接的</i>に参照している<b>無名ハイパーリンクターゲット</b>です。
+    テキストの直後に2つのアンダースコアを付けると、<b>無名ハイパーリンク参照</b>になります。
+    無名ハイパーリンクターゲットを書くときは、ハイパーリンク参照のテキストをもう一度書く必要はありません。
+    このため、長いテキストをハイパーリンク参照にしたいときや、参照を再利用しない場合に有用です。
+    ただし、ハイパーリンクターゲットと参照の対がズレないように近くに書いておくべきでしょう。
 
     <h4><a href="#contents" name="implicit-hyperlink-targets" class="backref"
         >暗黙的ハイパーリンクターゲット</a></h4>
 
     <p>(<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#implicit-hyperlink-targets">詳細</a>)
 
-    <p>Section titles, footnotes, and citations automatically generate
-    hyperlink targets (the title text or footnote/citation label is
-    used as the hyperlink name).
+    <p>セクションタイトルや脚注、引用は自動的にハイパーリンクターゲットになります
+      (タイトルテキスト、脚注ラベル、引用ラベルがハイパーリンク参照名になります）。
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
        <thead><tr align="left" bgcolor="#99CCFF">
@@ -1205,11 +1201,10 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
 
     <p>(<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#directives">詳細</a>)
 
-    <p>Directives are a general-purpose extension mechanism, a way of
-    adding support for new constructs without adding new syntax.  For
-    a description of all standard directives, see <a
+    <p>ディレクティブは多目的に使える拡張の仕組みで、新しい機能を文法の拡張なしで導入できます。
+    標準ディレクティブの情報は全て <a
     href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/directives.html" >reStructuredText
-    Directives</a>.
+    ディレクティブ</a>にまとまっています。
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
       <thead>
@@ -1233,8 +1228,7 @@ A&nbsp;transition&nbsp;marker&nbsp;is&nbsp;a&nbsp;horizontal&nbsp;line
 
     <p>(<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#substitution-definitions">詳細</a>)
 
-    <p>Substitutions are like inline directives, allowing graphics and
-    arbitrary constructs within text.
+    <p>置換はインラインディレクティブのようなもので、画像や調整した文字列をインラインで埋め込みます。
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
       <thead>
@@ -1264,8 +1258,7 @@ dispose&nbsp;of&nbsp;medical&nbsp;waste.</samp>
 
     <p>(<a href="https://docutils.sphinx-users.jp/docutils/docs/ref/rst/restructuredtext.html#comments">詳細</a>)
 
-    <p>Any text which begins with an explicit markup start but doesn't
-    use the syntax of any of the constructs above, is a comment.
+    <p>明示的マークアップのここまで紹介した以外の記述はすべてコメントとして扱われます。
 
     <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
       <thead>
@@ -1307,14 +1300,13 @@ dispose&nbsp;of&nbsp;medical&nbsp;waste.</samp>
     <h2><a href="#contents" name="getting-help" class="backref"
         >助けを求める</a></h2>
 
-    <p>Users who have questions or need assistance with Docutils or
-    reStructuredText should <a
-    href="mailto:docutils-users@lists.sourceforge.net" >post a
-    message</a> to the <a
+    <p>DocutilsやreStructuredTextについて質問や助けが必要な方は、 <a
     href="http://lists.sourceforge.net/lists/listinfo/docutils-users"
-    >Docutils-Users mailing list</a>.  The <a
-    href="http://docutils.sourceforge.net/" >Docutils project web
-    site</a> has more information.
+    >Docutils-Users mailing list</a> に <a
+    href="mailto:docutils-users@lists.sourceforge.net" >メッセージを投稿
+    </a> してください。 <a
+    href="https://docutils.sphinx-users.jp/web/index.html" >DocutilsプロジェクトWebサイト
+    </a> にも情報があります。
 
     <p><hr>
     <address>
